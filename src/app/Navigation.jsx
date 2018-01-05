@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => (
   <nav className='navbar navbar-expand-lg my-4'>
@@ -7,10 +7,10 @@ const Navigation = () => (
     <div className='collapse navbar-collapse'>
       <ul className='navbar-nav mr-auto'>
         <li className='nav-item'>
-          <Link to={`/home`} className='nav-link' activeClassName='active'>Home</Link>
+          <NavLink to={`/`} className='nav-link' activeClassName='active'>Home</NavLink>
         </li>
         <li className='nav-item'>
-          <Link to={`/about`} className='nav-link' activeClassName='active'>About</Link>
+          <NavLink to={`/about`} className='nav-link' activeClassName='active'>About</NavLink>
         </li>
       </ul>
     </div>
