@@ -12,8 +12,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 // Our app
 import App from './app/App';
-// import About from './app/about';
-// import Home from './app/home';
 
 render((
   <BrowserRouter>
