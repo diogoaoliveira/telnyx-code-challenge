@@ -12,7 +12,7 @@ class Post extends Component {
         </div>
         <div className='card-footer text-muted'>
           Posted on January 1, 2017 by
-          <a href='/blog'>Start Bootstrap</a>
+          <a href='/blog'> Start Bootstrap</a>
         </div>
       </div>
     );

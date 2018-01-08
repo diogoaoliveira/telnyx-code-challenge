@@ -8,6 +8,7 @@ import Navigation from './Navigation';
 import About from './about';
 import Blog from './blog';
 import Home from './home';
+import { PostSingle } from './blog/post';
 
 const App = () => (
   <div>
@@ -16,7 +17,8 @@ const App = () => (
     <div className='mx-3'>
       <Route exact path='/' component={Home} />
       <Route path='/about' component={About} />
-      <Route path='/blog' component={Blog} />
+      <Route exact path='/blog' component={Blog} />
+      <Route path='/blog/:postId' component={PostSingle} />
     </div>
   </div>
 );
