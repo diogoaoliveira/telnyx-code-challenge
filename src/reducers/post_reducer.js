@@ -1,12 +1,11 @@
 import {
   GET_ALL_POSTS,
-} from '../actions';
+} from '../actions/types';
 
-export default function(state, action) {
+export default (state = { postsData: [] }, action) => {
   switch (action.type) {
     case GET_ALL_POSTS:
-      return state;
-
+      return { ...state, postsData: action.payload };
     default:
       return state;
   }

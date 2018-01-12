@@ -1,12 +1,8 @@
 import React from  'react';
 import Post from './Post';
 
-const PostList = () => (
-  <div>
-    <Post />
-    <Post />
-    <Post />
-  </div>
+const PostList = (props) => (
+  props.posts.map((post, index) => <Post key={index} />)
 );
 
 export default PostList;
