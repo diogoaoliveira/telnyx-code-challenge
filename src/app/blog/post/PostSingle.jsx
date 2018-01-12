@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  CommentForm,
+  CommentList,
+} from './comment';
 
 const PostSingle = (props) => (
   <div className="container">
@@ -38,6 +42,9 @@ const PostSingle = (props) => (
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
 
           <hr />
+
+          <CommentForm />
+          <CommentList />
 
         </div>
       </div>
