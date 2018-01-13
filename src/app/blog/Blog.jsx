@@ -5,6 +5,9 @@ import PostList from './post/PostList';
 import {
   getAllPosts
 } from '../../actions';
+import {
+  sortByNewestDate,
+} from '../../utils/helpers';
 
 class Blog extends React.Component {
   componentWillMount() {
@@ -12,6 +15,7 @@ class Blog extends React.Component {
   }
 
   render() {
+    console.log(this.props.posts)
     return (
       <div className='container'>
         <h1>Blog</h1>
@@ -27,7 +31,7 @@ class Blog extends React.Component {
 
 const mapStateToProps = ({ post }) => {
   return {
-    posts: post.postsData
+    posts: post.postsData.sort(sortByNewestDate)
   }
 }
 
