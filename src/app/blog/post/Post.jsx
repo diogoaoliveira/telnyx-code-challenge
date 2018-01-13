@@ -11,7 +11,7 @@ class Post extends Component {
         <div className='card-body'>
           <h2 className='card-title'>{post.title}</h2>
           <p className='card-text'>{post.description}</p>
-          <Link to={`/blog/${post.slug}`} className='btn btn-primary'>Read More &rarr;</Link>
+          <Link to={`/blog/${post.id}/${post.slug}`} className='btn btn-primary'>Read More &rarr;</Link>
         </div>
         <div className='card-footer text-muted'>
           Posted on {moment(post.publish_date).format('MMM Do YYYY')} by
