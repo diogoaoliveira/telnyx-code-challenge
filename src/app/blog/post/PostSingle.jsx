@@ -39,7 +39,7 @@ class PostSingle extends React.Component {
               <h1 className="mt-4">{post.title}</h1>
               <p className="lead">
                 by
-                <a href="#"> {post.author}</a>
+                <a href="/blog"> {post.author}</a>
               </p>
               <hr />
               <p>Posted on {moment(post.publish_date).format('MMM Do YYYY')}</p>

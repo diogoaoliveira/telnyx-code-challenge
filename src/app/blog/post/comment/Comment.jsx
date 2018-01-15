@@ -39,6 +39,9 @@ class Comment extends React.Component {
         <div className="media-body">
           <h5 className="mt-0">{comment.user}</h5>
           {comment.content}
+          <div style={{marginTop: 5}}>
+            <span className="badge badge-pill badge-primary">{moment(comment.date).fromNow()}</span>
+          </div>
           <div>
             <button className="btn btn-link" onClick={this.showReplyForm}>Reply</button>
           </div>
