@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import PostList from './post/PostList';
 import {
   getAllPosts
@@ -19,7 +18,7 @@ class Blog extends React.Component {
     return (
       <div className='container'>
         <h1>Blog</h1>
-        <div className={classNames('row', 'justify-content-center')}>
+        <div className='row justify-content-center'>
           <div className='col-md-8'>
             <PostList posts={this.props.posts}/>
           </div>
