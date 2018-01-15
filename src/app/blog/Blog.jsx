@@ -14,7 +14,6 @@ class Blog extends React.Component {
   }
 
   render() {
-    console.log(this.props.posts)
     return (
       <div className='container'>
         <h1>Blog</h1>

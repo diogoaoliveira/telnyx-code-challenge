@@ -5,7 +5,8 @@ import {
   CommentList,
 } from './comment';
 import {
-  getPostById
+  getPostById,
+  getCommentsByPost,
 } from '../../../actions';
 import moment from 'moment';
 
@@ -14,7 +15,6 @@ class PostSingle extends React.Component {
     this.props.getPostById(this.props.match.params.postId);
   }
   render() {
-    console.log(this.props);
     const { post } = this.props;
     return (
       <div className="container">
@@ -33,7 +33,7 @@ class PostSingle extends React.Component {
               <div dangerouslySetInnerHTML={{ __html: post.content }}/>
               <hr />
               <CommentForm />
-              <CommentList />
+              <CommentList comments={this.props.comments} />
             </div>
           </div>
         </div>
@@ -41,14 +41,16 @@ class PostSingle extends React.Component {
   }
 }
 
-const mapStateToProps = ({ post }) => {
+const mapStateToProps = ({ post, comment }) => {
   return {
-    post: post.singlePost
+    post: post.singlePost,
+    comments: comment.commentsData,
   }
 }
 
 const mapDispatchToProps = {
-  getPostById
+  getPostById,
+  getCommentsByPost,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostSingle);
