@@ -1,35 +1,20 @@
 import React from 'react';
 import Comment from './Comment';
-import Reply from './Reply';
 
 class CommentList extends React.Component {
   renderComment(parentComment) {
-    const replies = this.props.comments.filter(comment => comment.parent_id === parentComment.id)
+    const replies = this.props.comments.filter(comment => comment.parent_id === parentComment.id);
+    if (replies.length === 0)
+      return (
+        <Comment key={parentComment.id} comment={parentComment} />
+      );
     return (
-      <Comment key={parentComment.id} comment={parentComment}>
+      <Comment key={parentComment.id} isReply comment={parentComment}>
         {replies.map(childComment => (
-          // <Comment isReply key={childComment.id} comment={childComment}>
-          //   {this.renderComment(childComment)}
-          // </Comment>
-          <Reply reply={childComment}>
-            {this.renderReplies(childComment)}
-          </Reply>
+            this.renderComment(childComment)
         ))}
       </Comment>
     );
-  }
-
-  renderReplies(reply) {
-    const childReplies = this.props.comments.filter(comment => comment.parent_id === reply.id);
-    if (childReplies.length === 0)
-     return null;
-    return (
-      childReplies.map((reply, index) => (
-        <Reply reply={reply}>
-          {this.renderReplies(reply)}
-        </Reply>
-      ))
-    )
   }
 
   render() {
