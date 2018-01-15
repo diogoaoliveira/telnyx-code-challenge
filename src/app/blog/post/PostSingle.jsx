@@ -7,6 +7,7 @@ import {
 import {
   getPostById,
   getCommentsByPost,
+  addComment,
 } from '../../../actions';
 import moment from 'moment';
 
@@ -14,6 +15,21 @@ class PostSingle extends React.Component {
   componentDidMount() {
     this.props.getPostById(this.props.match.params.postId);
   }
+
+  addCommentForm = (content) => {
+    const { post } = this.props;
+    const newDate = new Date();
+    const newComment = {
+      postId: post.id,
+      parent_id: null,
+      user: "New User",
+      date: moment(newDate).format("YYYY-MM-DD"),
+      content: content,
+    }
+    this.props.addComment(newComment);
+
+  }
+
   render() {
     const { post } = this.props;
     return (
@@ -32,7 +48,7 @@ class PostSingle extends React.Component {
               <hr />
               <div dangerouslySetInnerHTML={{ __html: post.content }}/>
               <hr />
-              <CommentForm />
+              <CommentForm addComment={this.addCommentForm} />
               <CommentList comments={this.props.comments} />
             </div>
           </div>
@@ -51,6 +67,7 @@ const mapStateToProps = ({ post, comment }) => {
 const mapDispatchToProps = {
   getPostById,
   getCommentsByPost,
+  addComment,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostSingle);

@@ -1,12 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import moment from 'moment';
 import CommentForm from './CommentForm';
+import {
+  addComment
+} from '../../../../actions';
 
 class Comment extends React.Component {
   state = {
     showReply: false,
   }
+
   showReplyForm = () => {
     this.setState((prevState) => ({showReply: !prevState.showReply}));
+  }
+
+  addCommentForm = (content) => {
+    const { comment } = this.props;
+    const newDate = new Date();
+    const newComment = {
+      postId: comment.postId,
+      parent_id: comment.id,
+      user: "New User",
+      date: moment(newDate).format("YYYY-MM-DD"),
+      content: content,
+    }
+    this.props.addComment(newComment);
+    this.setState({ showReply: false });
   }
 
   render() {
@@ -23,7 +43,7 @@ class Comment extends React.Component {
             <button className="btn btn-link" onClick={this.showReplyForm}>Reply</button>
           </div>
           <div>
-            {showReply && <CommentForm />}
+            {showReply && <CommentForm addComment={this.addCommentForm} />}
           </div>
           { children && children }
         </div>
@@ -32,4 +52,8 @@ class Comment extends React.Component {
   }
 }
 
-export default Comment;
+const mapDispatchToProps = {
+  addComment
+}
+
+export default connect(null, mapDispatchToProps)(Comment);

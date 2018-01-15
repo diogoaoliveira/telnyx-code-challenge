@@ -2,6 +2,7 @@ import {
   GET_ALL_POSTS,
   GET_POST_BY_ID,
   GET_COMMENTS_BY_POST,
+  ADD_COMMENT,
 } from './types';
 import * as PostsAPI from '../utils/PostsAPI';
 import * as CommentsAPI from '../utils/CommentsAPI';
@@ -25,5 +26,11 @@ export const getPostById = postId => dispatch => {
 export const getCommentsByPost = postId => dispatch => {
   CommentsAPI.getByPost(postId).then(comments => {
     dispatch({ type: GET_COMMENTS_BY_POST, payload: comments });
+  });
+}
+
+export const addComment = comment => dispatch => {
+  CommentsAPI.add(comment).then(newComment => {
+    dispatch({ type: ADD_COMMENT, payload: newComment});
   });
 }

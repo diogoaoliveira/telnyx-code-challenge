@@ -1,4 +1,7 @@
 // POSTS
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
 export const GET_POST_BY_ID = 'GET_POST_BY_ID';
+
+// COMMENTS
 export const GET_COMMENTS_BY_POST = 'GET_COMMENTS_BY_POST';
+export const ADD_COMMENT = 'ADD_COMMENT';
