@@ -23,5 +23,5 @@ describe('Comment Reducer', () => {
   it('should store the comments data', () => {
     expect(commentReducer({ commentsData: [] }, { type: GET_COMMENTS_BY_POST, payload: MOCK_COMMENTS }))
       .toEqual({ commentsData: MOCK_COMMENTS });
-  })
+  });
 });
